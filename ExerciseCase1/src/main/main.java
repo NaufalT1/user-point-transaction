@@ -3,10 +3,12 @@ package main;
 import model.person;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class main {
-    public static String[] history;
+    public static List<String> history = new ArrayList<>();
     public static void main(String[] args) {
         String[] listName = {"Robert","Downey","Chris","Tony"};
 
@@ -18,6 +20,10 @@ public class main {
         }
 
         getAllUserName(listPerson);
+
+        transaction(listPerson[0],listPerson[1],10);
+
+        System.out.println(main.history);
 
 
     }
@@ -46,7 +52,7 @@ public class main {
         String strDate = formatter.format(date);
 
         //TODO fix command append list
-        //main.history.add(strDate+sender.getName()+String.valueOf(amount)+receiver.getName());
+        main.history.add(strDate+", "+sender.getName()+", "+String.valueOf(amount)+", "+receiver.getName());
 
     }
 }
