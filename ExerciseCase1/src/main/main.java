@@ -22,10 +22,20 @@ public class main {
         getAllUserName(listPerson);
 
         transaction(listPerson[0],listPerson[1],10);
+        transaction(listPerson[1],listPerson[2],10);
 
-        System.out.println(main.history);
+        readHistory();
+
+//        System.out.println(main.history);
+//        System.out.println(main.history.get(0));
 
 
+    }
+    public static void readHistory(){
+            for (String item:main.history
+                 ) {
+                System.out.println(item);
+            }
     }
     public static void getAllUserName(person[] person){
         for (person human: person) {
@@ -51,7 +61,7 @@ public class main {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String strDate = formatter.format(date);
 
-        //TODO fix command append list
+        // Append list
         main.history.add(strDate+", "+sender.getName()+", "+String.valueOf(amount)+", "+receiver.getName());
 
     }
